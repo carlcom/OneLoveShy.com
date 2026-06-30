@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
     content="OneLoveShy gives every person, friend-seeker, small business, and public figure their own address — yourname.oneloveshy.com — and a no-spam, pay-to-message way to be reached. A not-for-profit built for real connection.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -14,15 +15,15 @@
     rel="stylesheet">
   <style>
     :root {
-      --ink: #1C2B22;
-      --ink-soft: #3C4A40;
-      --paper: #F2EEE2;
-      --paper-deep: #E7E0CC;
-      --stamp: #D6452B;
-      --stamp-deep: #A8331F;
+      --ink: #1B1320;
+      --ink-soft: #46394F;
+      --paper: #F3EEF6;
+      --paper-deep: #E6DCEF;
+      --stamp: #609;
+      --stamp-deep: #46006E;
       --seal: #C99A3E;
-      --line: rgba(28, 43, 34, 0.16);
-      --white: #FFFDF8;
+      --line: rgba(27, 19, 32, 0.16);
+      --white: #FFFFFF;
       --radius: 4px;
       --max: 1120px;
     }
@@ -133,13 +134,10 @@
     }
 
     .brand .mark {
-      width: 26px;
-      height: 26px;
-      border-radius: 2px;
-      background: var(--stamp);
-      outline: 2px dashed var(--white);
-      outline-offset: -5px;
+      width: 24px;
+      height: 24px;
       flex-shrink: 0;
+      display: block;
     }
 
     .brand-name {
@@ -581,14 +579,8 @@
     /* ===== VALUES ===== */
     .values-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 24px;
-    }
-
-    @media (max-width:900px) {
-      .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
 
     @media (max-width:560px) {
@@ -702,8 +694,14 @@
 
     .foot-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
       gap: 32px;
+    }
+
+    @media (max-width:980px) {
+      .foot-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
     }
 
     @media (max-width:780px) {
@@ -769,7 +767,13 @@
   <header class="site">
     <div class="nav wrap">
       <div class="brand">
-        <span class="mark" aria-hidden="true"></span>
+      <svg class="mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+        <circle cx="7" cy="7" r="6.5" fill="black" />
+        <path d="M7,13.5 A6.5,6.5 0 0 0 7,0.5 m0,0.5 A3,3 0 0 0 7,7 A3,3 0 0 1 7,13 Z" fill="white" />
+        <circle cx="7" cy="10" r="1" fill="white" />
+        <circle cx="7" cy="4" r="1" fill="black" />
+        <circle xmlns="http://www.w3.org/2000/svg" cx="7" cy="7" r="6.5" fill="none" stroke="#609" stroke-width="1" />
+      </svg>
         <span class="brand-name">OneLoveShy</span>
       </div>
       <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
@@ -802,7 +806,7 @@
         <div class="address-mock" role="group" aria-label="Example profile address">
           <div class="address-bar-top" aria-hidden="true"><span></span><span></span><span></span></div>
           <div class="address-bar">
-            <span class="lock" aria-hidden="true">🔒</span>
+            <span class="lock" aria-hidden="true"></span>
             <span id="address-text" class="mono"><span class="who">maria</span>.oneloveshy.com</span>
           </div>
           <div class="address-tag" id="address-tag">looking for friends, open to more</div>
@@ -818,7 +822,7 @@
           <p class="eyebrow">Who it's for</p>
           <h2>One platform, four very different reasons to show up.</h2>
           <p>You decide what your page is for. OneLoveShy doesn't put everyone in the same dating pool — it just gives
-            everyone a reliable, spam-free address.</p>
+            everyone a reliable, spam-free place to meet.</p>
         </div>
         <div class="audience-grid">
           <div class="acard">
@@ -893,7 +897,7 @@
           <div class="stamp-display">
             <div class="stamp">
               <div class="small">First class</div>
-              <div class="price">$2</div>
+              <div class="price">$1</div>
               <div class="small">per message</div>
               <div class="note mono">or a charity gift instead</div>
             </div>
@@ -983,9 +987,40 @@
             <p>OneLoveShy is a not-for-profit. We charge enough to keep the lights on and stop spam — not to maximize a
               return.</p>
           </div>
+          <div class="vcard">
+            <h3><span class="dot"></span>Member voting</h3>
+            <p>Verified members vote on how surplus revenue gets spent — which causes, programs, or improvements get
+              funded next.</p>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- TWO NONPROFITS -->
+    <section class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Two nonprofits, one mission</p>
+          <h2>OneLoveShy.com runs the platform. Two affiliated nonprofits carry out the mission.</h2>
+          <p>Membership fees and message stamps fund the work below — and members vote on how it's allocated.</p>
+        </div>
+        <div class="audience-grid" style="grid-template-columns:repeat(2,1fr);">
+          <div class="acard">
+            <span class="tag">501(c)(3)</span>
+            <h3><a href="https://oneloveshy.org" target="_blank" rel="noopener">OneLoveShy.org</a></h3>
+            <p>Our charitable arm: helping others directly, self-improvement resources, healthy eating and exercise
+              support, the Switch program, and related community-aid initiatives. Donations here are tax-deductible.</p>
+          </div>
+          <div class="acard">
+            <span class="tag">501(c)(4)</span>
+            <h3><a href="https://oneloveshy.net" target="_blank" rel="noopener">OneLoveShy.net</a></h3>
+            <p>Our advocacy arm: the nonprofit's political and policy goals, and broader organizational initiatives that
+              fall outside charitable-only activity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- FAQ -->
     <section id="faq" class="alt">
@@ -1064,8 +1099,15 @@
         <div>
           <h4>Contact</h4>
           <ul>
-            <li>Email: contact@oneloveshy.com</li>
-            <li>123 Love Lane, Heartsville</li>
+            <li>Email: me.oneloveshy.com</li>
+          
+          </ul>
+        </div>
+        <div>
+          <h4>Nonprofits</h4>
+          <ul>
+            <li><a href="https://oneloveshy.org" target="_blank" rel="noopener">OneLoveShy.org (501c3)</a></li>
+            <li><a href="https://oneloveshy.net" target="_blank" rel="noopener">OneLoveShy.net (501c4)</a></li>
           </ul>
         </div>
         <div>
