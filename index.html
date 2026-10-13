@@ -6,7 +6,7 @@
   <title>OneLoveShy — Everyone has an address. Yours is yours.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="OneLoveShy gives every person, friend-seeker, small business, and public figure their own address — your_name.oneloveshy.com — and a no-spam, pay-to-message way to be reached. A not-for-profit built for real connection.">
+    content="OneLoveShy gives every person, friend-seeker, small business, and public figure their own address — your_name.oneloveshy.com — and a no-spam, pay-to-message way to be reached. A no[...]">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -161,6 +161,9 @@
       color: var(--stamp);
     }
 
+    /* helper for showing short labels on mobile */
+    nav.links a .short { display: none; }
+
     .btn {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 600;
@@ -204,26 +207,29 @@
     }
 
     @media (max-width:780px) {
+      /* Remove slide-in overlay: keep nav inline and simplify labels */
       nav.links {
-        position: fixed;
-        inset: 64px 0 0 0;
-        background: var(--paper);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 28px;
-        transform: translateX(100%);
-        transition: transform .25s ease;
-        gap: 20px;
-        border-top: 1px solid var(--line);
-      }
-
-      nav.links.open {
-        transform: translateX(0%);
+        position: static;
+        inset: auto;
+        background: transparent;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 0;
+        transform: none;
+        transition: none;
+        gap: 14px;
+        border-top: none;
       }
 
       .navtoggle {
-        display: block;
+        display: none; /* hide burger entirely */
       }
+
+      /* show short menu labels and hide less-essential links */
+      nav.links a .full { display: none; }
+      nav.links a .short { display: inline; }
+      nav.links a.hide-on-mobile { display: none; }
     }
 
     /* ===== HERO ===== */
@@ -549,32 +555,7 @@
       margin-bottom: 4px;
     }
 
-    @media (max-width:700px) {
-
-      table.compare,
-      table.compare tbody,
-      table.compare tr,
-      table.compare td {
-        display: block;
-        width: 100%;
-      }
-
-      table.compare thead {
-        display: none;
-      }
-
-      table.compare tr {
-        border: 1.5px solid var(--ink);
-        margin-bottom: 14px;
-        border-radius: 6px;
-        overflow: hidden;
-      }
-
-      table.compare td {
-        border: none;
-        border-bottom: 1px solid var(--line);
-      }
-    }
+    /* Note: removed the small-screen stacking for the comparison table so the two-column layout remains on narrow viewports */
 
     /* ===== VALUES ===== */
     .values-grid {
@@ -778,11 +759,12 @@
       </div>
       <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
       <nav class="links" id="navLinks">
-        <a href="#who">Who it's for</a>
-        <a href="#how">How it works</a>
-        <a href="#values">Values</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn btn-ghost" href="#join">Claim your address</a>
+        <a href="#who"><span class="full">Who it's for</span><span class="short">Who</span></a>
+        <a href="#how"><span class="full">How it works</span><span class="short">How</span></a>
+        <a href="#why"><span class="full">Why this, and not another app</span><span class="short">Why</span></a>
+        <a href="#values" class="hide-on-mobile">Values</a>
+        <a href="#faq" class="hide-on-mobile">FAQ</a>
+        <a class="btn btn-ghost hide-on-mobile" href="#join">Claim your address</a>
       </nav>
     </div>
   </header>
@@ -902,7 +884,7 @@
     </section>
 
     <!-- COMPARISON -->
-    <section class="alt">
+    <section class="alt" id="why">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Why this, and not another app</p>
@@ -999,159 +981,10 @@
           </div>
           <div class="acard">
             <span class="tag">501(c)(4)</span>
-            <h3><a href="https://oneloveshy.net" target="_blank" rel="noopener">OneLoveShy.net</a></h3>
-            <p>Our advocacy arm: the nonprofit's political and policy goals, and broader organizational initiatives that
-              fall outside charitable-only activity. OneLoveShy will not support candidates, policical parties, or similar.
-              We support honesty in everything.</p>
+            <h3><a href="https://oneloveshy.foundation" target="_blank" rel="noopener">OneLoveShy Foundation</a></h3>
+            <p>Policy work, advocacy, and activities that further the mission of increasing healthy, honest human connection at scale.</p>
           </div>
         </div>
-    <!-- MISSION STATEMENT -->
-        <div class="section-head" id="mission">
-          <h2>>Mission Statement:</h2>
-          <p class="eyebrow"><b>Promote freedom, peace and civility. Advocate against waste, in all it's forms.</b></p>
-          <p>Make Love, not War. Haters are easy to manipulate. The free world needs to unite against oppressors, and never stop.
-            Stand united against All indiscriminate (not directed toward military or leadership) killing, the definition of terrorism.</p>
-          <p>Government, Lawyers, Unions, Tax accountants - There are too many groups to list, that get richer by making life more difficult.
-          Incentivise doing what's right, and penalize doing what's wrong. Riots are wrong<b>.</b> 
-            Lying, cheating, stealing: You are worth more than "easy" money.</p>
-        </div>
       </div>
     </section>
 
-
-    <!-- FAQ -->
-    <section id="faq" class="alt">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">FAQ</p>
-          <h2>Good to know before you reserve a name.</h2>
-        </div>
-
-        <details class="faq-item">
-          <summary>Is OneLoveShy a dating site?</summary>
-          <p>No, but trying (and being very dissappointed with) a dating site is what sparked the idea.</p>
-        </details>
-        <details class="faq-item">
-          <summary>How would a business or public figure use it?</summary>
-          <p>Get a clean public page with easy-to-remember address — then promote how you want. Trust-meter for every member, because trust is key.
-            Even the super-busy can give a little time for someone who has donated to their favorite charity, filtering serious messages from noise.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What does "not-for-profit" actually mean here?</summary>
-          <p>OneLoveShy isn't built to maximize returns for owners or investors. Message fees and name reservations
-            cover costs; anything left over goes back into the community and the mission.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Is the platform free to use?</summary>
-          <p>Browsing is — Joining by reserving your_name is a one time fee, allowing peop a profile and receiving messages is free. Reserving your specific name
-            (your_name.oneloveshy.com) is a one-time purchase, and senders pay a small stamp fee to message you.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Can I delete my account if I choose to?</summary>
-          <p>Yes, you have control over how you can be found and messaged.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What about an app?</summary>
-          <p>No - You have too many.</p>
-        </details>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section id="join">
-      <div class="wrap">
-        <div class="final-cta">
-          <h2>Your name is probably still available, it's easy to see.</h2>
-          <p>Reserve your_name.oneloveshy.com once. Keep it for as long as you want to be reachable.</p>
-          <a href="#" class="btn btn-primary">Reserve your name</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <div class="foot-grid">
-        <div>
-          <h4>OneLoveShy</h4>
-          <p>An address for every kind of connection — dating, friendship, business, and public life. Built and run as a
-            not-for-profit.</p>
-          <span class="nfp-badge mono">NFP</span>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="#who">Who it's for</a></li>
-            <li><a href="#how">How it works</a></li>
-            <li><a href="#values">Values</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <ul>
-            <li>me.oneloveshy.com</li>
-
-          </ul>
-        </div>
-        <div>
-          <h4>Nonprofits</h4>
-          <ul>
-            <li><a href="https://oneloveshy.org" target="_blank" rel="noopener">OneLoveShy.org (501c3)</a></li>
-            <li><a href="https://oneloveshy.net" target="_blank" rel="noopener">OneLoveShy.net (501c4)</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="/legal-notice">Legal notice</a></li>
-            <li><a href="/privacy">Privacy policy</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="foot-bottom">
-        <span>© 2026 OneLoveShy. A not-for-profit project.</span>
-        <span>
-          <a href="https://www.facebook.com/" style="margin-right:14px;">Facebook</a>
-          <a href="https://www.instagram.com/">Instagram</a>
-        </span>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // mobile nav
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }));
-
-    // hero address rotator
-    const examples = [
-      { who: 'maria', tag: 'looking for friends, open to more' },
-      { who: 'thecafedowntown', tag: 'local business · verified' },
-      { who: 'djkayverified', tag: 'public figure · fan messages welcome' },
-      { who: 'samuel', tag: 'dating · serious connections only' }
-    ];
-    let i = 0;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduceMotion) {
-      setInterval(() => {
-        i = (i + 1) % examples.length;
-        const el = document.getElementById('address-text');
-        const tag = document.getElementById('address-tag');
-        el.innerHTML = '<span class="who">' + examples[i].who + '</span>.oneloveshy.com';
-        tag.textContent = examples[i].tag;
-      }, 3200);
-    }
-  </script>
-</body>
-
-</html>
