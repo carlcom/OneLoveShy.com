@@ -3,740 +3,52 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>OneLoveShy — Everyone has an address. Yours is yours.</title>
+  <title>Meet Real People</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="OneLoveShy is the place everyone can meet, without the fakes and spam bots.">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="description" content="OneLoveShy is the Place Everyone can Meet, without the fakes and scammers.">
+
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <style>
-    :root {
-      --ink: #1B1320;
-      --ink-soft: #46394F;
-      --paper: #F3EEF6;
-      --paper-deep: #E6DCEF;
-      --stamp: #609;
-      --stamp-deep: #46006E;
-      --seal: #C99A3E;
-      --line: rgba(27, 19, 32, 0.16);
-      --white: #FFFFFF;
-      --radius: 4px;
-      --max: 1120px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      * {
-        animation-duration: 0.001ms !important;
-        transition-duration: 0.001ms !important;
-      }
-    }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 17px;
-      line-height: 1.6;
-    }
-
-    h1,
-    h2,
-    h3,
-    .display {
-      font-family: 'Space Grotesk', Arial, sans-serif;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin: 0;
-      color: var(--ink);
-    }
-
-    .mono {
-      font-family: 'IBM Plex Mono', monospace;
-      letter-spacing: 0.02em;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 28px;
-    }
-
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
-    }
-
-    /* skip link */
-    .skip {
-      position: absolute;
-      left: -999px;
-      top: 0;
-      background: var(--ink);
-      color: var(--white);
-      padding: 10px 16px;
-      z-index: 200;
-    }
-
-    .skip:focus {
-      left: 12px;
-      top: 12px;
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--stamp);
-      outline-offset: 2px;
-    }
-
-    /* ===== HEADER ===== */
-    header.site {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(242, 238, 226, 0.92);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 28px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand .mark {
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-      display: block;
-    }
-
-    .brand-name {
-      font-size: 1.15rem;
-      font-weight: 700;
-    }
-
-    nav.links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-
-    nav.links a {
-      font-size: 0.95rem;
-      font-family: 'Space Grotesk', sans-serif;
-      color: var(--ink-soft);
-    }
-
-    nav.links a:hover {
-      color: var(--stamp);
-    }
-
-    .btn {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 0.92rem;
-      padding: 10px 20px;
-      border-radius: var(--radius);
-      border: 1.5px solid var(--ink);
-      display: inline-block;
-      cursor: pointer;
-      transition: transform .15s ease, background .15s ease, color .15s ease;
-    }
-
-    .btn-primary {
-      background: var(--ink);
-      color: var(--white);
-    }
-
-    .btn-primary:hover {
-      background: var(--stamp);
-      border-color: var(--stamp);
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--ink);
-    }
-
-    .btn-ghost:hover {
-      background: var(--ink);
-      color: var(--white);
-    }
-
-
-    @media (max-width:780px) {
-
-      nav.links {
-        position: static;
-        inset: auto;
-        background: transparent;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 0;
-        transform: none;
-        transition: none;
-        gap: 14px;
-        border-top: none;
-      }
-
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      padding: 72px 0 56px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stripe {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 10px;
-      background: repeating-linear-gradient(45deg, var(--stamp) 0 14px, var(--seal) 14px 28px, var(--paper) 28px 34px);
-      opacity: 0.9;
-    }
-
-    .stripe.top {
-      top: 0;
-    }
-
-    .eyebrow {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--stamp-deep);
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .eyebrow::before {
-      content: "●";
-      font-size: 0.6rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.1rem, 4.6vw, 3.4rem);
-      line-height: 1.08;
-      max-width: 18ch;
-    }
-
-    .hero .lede {
-      margin-top: 20px;
-      font-size: 1.15rem;
-      max-width: 46ch;
-      color: var(--ink-soft);
-    }
-
-    .hero .cta-row {
-      margin-top: 30px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .address-mock {
-      margin-top: 48px;
-      background: var(--white);
-      border: 1.5px solid var(--ink);
-      border-radius: 8px;
-      max-width: 560px;
-      box-shadow: 6px 6px 0 var(--ink);
-    }
-
-    .address-bar-top {
-      display: flex;
-      gap: 6px;
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .address-bar-top span {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--line);
-    }
-
-    .address-bar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 18px;
-    }
-
-    .address-bar .lock {
-      color: var(--ink-soft);
-      font-size: 0.9rem;
-    }
-
-    #address-text {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.02rem;
-      color: var(--ink);
-    }
-
-    #address-text .who {
-      color: var(--stamp-deep);
-      font-weight: 500;
-    }
-
-    .address-tag {
-      padding: 14px 18px;
-      border-top: 1px dashed var(--line);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.82rem;
-      color: var(--ink-soft);
-    }
-
-    /* ===== SECTION shells ===== */
-    section {
-      padding: 72px 0;
-    }
-
-    .section-head {
-      max-width: 62ch;
-      margin-bottom: 44px;
-    }
-
-    .section-head .eyebrow {
-      margin-bottom: 14px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      line-height: 1.15;
-    }
-
-    .section-head p {
-      margin-top: 14px;
-      color: var(--ink-soft);
-      font-size: 1.05rem;
-    }
-
-    .alt {
-      background: var(--white);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    /* ===== AUDIENCE CARDS ===== */
-    .audience-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    @media (max-width:980px) {
-      .audience-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width:560px) {
-      .audience-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .acard {
-      background: var(--paper);
-      border: 1.5px solid var(--ink);
-      border-radius: 6px;
-      padding: 24px 20px;
-      position: relative;
-    }
-
-    .acard .tag {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      color: var(--white);
-      background: var(--ink);
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 3px;
-      margin-bottom: 14px;
-    }
-
-    .acard h3 {
-      font-size: 1.08rem;
-      margin-bottom: 8px;
-    }
-
-    .acard p {
-      font-size: 0.95rem;
-      color: var(--ink-soft);
-      margin: 0;
-    }
-
-    /* ===== HOW IT WORKS / STAMP ===== */
-    .how-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    @media (max-width:880px) {
-      .how-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .steps {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .steps li {
-      display: flex;
-      gap: 16px;
-      padding: 18px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .steps li:first-child {
-      border-top: none;
-    }
-
-    .steps .num {
-      font-family: 'IBM Plex Mono', monospace;
-      color: var(--stamp-deep);
-      font-weight: 500;
-      flex-shrink: 0;
-      width: 2ch;
-    }
-
-    .steps h4 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 1.02rem;
-      margin-bottom: 4px;
-    }
-
-    .steps p {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 0.96rem;
-    }
-
-    .stamp-display {
-      display: flex;
-      justify-content: center;
-    }
-
-    .stamp {
-      width: 230px;
-      padding: 30px 18px;
-      background: var(--stamp);
-      color: var(--white);
-      text-align: center;
-      border: 3px dashed var(--paper);
-      outline: 3px dashed var(--ink);
-      outline-offset: 7px;
-      border-radius: 2px;
-      transform: rotate(-3deg);
-    }
-
-    .stamp .small {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      opacity: 0.85;
-    }
-
-    .stamp .price {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.1rem;
-      font-weight: 700;
-      margin: 6px 0;
-    }
-
-    .stamp .note {
-      font-size: 0.78rem;
-      opacity: 0.9;
-    }
-
-    /* ===== COMPARISON TABLE ===== */
-    table.compare {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 8px;
-      font-size: 0.95rem;
-    }
-
-    table.compare th,
-    table.compare td {
-      border: 1px solid var(--line);
-      padding: 14px 16px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    table.compare thead th {
-      font-family: 'Space Grotesk', sans-serif;
-      background: var(--ink);
-      color: var(--white);
-      font-weight: 600;
-    }
-
-    table.compare td.them {
-      color: var(--ink-soft);
-    }
-
-    table.compare td.us {
-      background: var(--white);
-      font-weight: 500;
-    }
-
-    table.compare .label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      color: var(--stamp-deep);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    /* ===== VALUES ===== */
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
-
-    @media (max-width:560px) {
-      .values-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .vcard h3 {
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .vcard .dot {
-      width: 8px;
-      height: 8px;
-      background: var(--stamp);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .vcard p {
-      color: var(--ink-soft);
-      font-size: 0.96rem;
-      margin: 0;
-    }
-
-    /* ===== FAQ ===== */
-    .faq-item {
-      border-top: 1px solid var(--line);
-      padding: 20px 0;
-    }
-
-    .faq-item:first-of-type {
-      border-top: none;
-    }
-
-    .faq-item summary {
-      cursor: pointer;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 1.04rem;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::after {
-      content: "+";
-      font-size: 1.4rem;
-      color: var(--stamp-deep);
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .faq-item[open] summary::after {
-      content: "–";
-    }
-
-    .faq-item p {
-      margin-top: 14px;
-      color: var(--ink-soft);
-    }
-
-    /* ===== FINAL CTA ===== */
-    .final-cta {
-      text-align: center;
-      padding: 64px 28px;
-      background: var(--ink);
-      color: var(--white);
-      border-radius: 10px;
-      margin: 0 28px;
-    }
-
-    .final-cta h2 {
-      color: var(--white);
-      font-size: clamp(1.6rem, 3.4vw, 2.3rem);
-      max-width: 30ch;
-      margin: 0 auto;
-    }
-
-    .final-cta p {
-      color: #D8D8CC;
-      margin-top: 14px;
-    }
-
-    .final-cta .btn-primary {
-      background: var(--stamp);
-      border-color: var(--stamp);
-      margin-top: 24px;
-    }
-
-    .final-cta .btn-primary:hover {
-      background: var(--seal);
-      border-color: var(--seal);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      padding: 56px 0 32px;
-      font-size: 0.9rem;
-      color: var(--ink-soft);
-    }
-
-    .foot-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
-      gap: 32px;
-    }
-
-    @media (max-width:980px) {
-      .foot-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-    }
-
-    @media (max-width:780px) {
-      .foot-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width:480px) {
-      .foot-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    footer h4 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--ink);
-      margin-bottom: 14px;
-    }
-
-    footer ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-
-    footer a:hover {
-      color: var(--stamp-deep);
-    }
-
-    .nfp-badge {
-      display: inline-block;
-      margin-top: 10px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      border: 1px solid var(--ink);
-      padding: 3px 8px;
-      border-radius: 3px;
-    }
-
-    .foot-bottom {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.82rem;
-    }
-  </style>
+  <link id="site-stylesheet" rel="stylesheet" href="https://oneloveshy.com/style.css?v">
+  <script>
+    if (window.location.protocol === 'file:' ||
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1') {
+      document.getElementById('site-stylesheet').href = 'style.css';
+    }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"OneLoveShy",
+  "url":"https://oneloveshy.com",
+  "logo":"https://oneloveshy.com/apple-touch-icon.png"
+}
+</script>
 </head>
 
 <body>
-  <a href="#main" class="skip">Skip to main content</a>
 
   <header class="site">
     <div class="nav wrap">
-      <div class="brand">
-        <svg class="mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
-          <circle cx="7" cy="7" r="6.5" fill="black" />
-          <path d="M7,13.5 A6.5,6.5 0 0 0 7,0.5 m0,0.5 A3,3 0 0 0 7,7 A3,3 0 0 1 7,13 Z" fill="white" />
-          <circle cx="7" cy="10" r="1" fill="white" />
-          <path d="M7,3.1 C6.5,2.5 5.6,2.8 5.6,3.6 C5.6,4.4 7,5.3 7,5.3 C7,5.3 8.4,4.4 8.4,3.6 C8.4,2.8 7.5,2.5 7,3.1 Z"
-            fill="#e00" transform="rotate(-45 7 4)" />
-          <circle cx="7" cy="7" r="6.5" fill="none" stroke="#609" stroke-width="1" />
-        </svg>
-        <span class="brand-name">OneLoveShy</span>
-      </div>
-   
+      <form class="place-search" action="find.html" method="get" role="search" data-find-form>
+        <input type="search" name="q" placeholder="place" aria-label="Find a place" autocomplete="off">
+        <button class="msg-btn" type="submit" aria-label="Find a place">
+          <span class="msg-top">Find</span>
+          <span class="marked-name fontp"><img src="favicon.svg" alt="">OneLoveShy</span>
+          <span class="msg-bottom">Member's place</span>
+        </button>
+      </form>
+
       <nav class="links" id="navLinks">
         <a href="#who">Who</a>
         <a href="#what">What</a>
@@ -749,19 +61,34 @@
   <main id="main">
 
     <!-- HERO -->
-    <section class="hero" id="what">
+    <section class="hero">
       <div class="stripe top" aria-hidden="true"></div>
-      <div class="wrap">
-        <p class="eyebrow">Built for Real Connections, not profit</p>
-        <h1>A place to meet real people.</h1>
-        <p class="lede">Every person and organisation on OneLoveShy gets their own
-          address — <strong>your_name.oneloveshy.com</strong>. Your time is priceless, don't waste it on "free"
-          platforms. No spammers, time leaches, or fakes<sup>*</sup>.</p>
-        <div class="cta-row">
-          <a href="#join" class="btn btn-primary">Reserve your name</a>
-          <a href="#how" class="btn btn-ghost">See how messaging works</a>
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Built for Real Connections, not profit</p>
+          <h1>A place to Meet Real People.</h1>
+          <p class="lede">Every person and organisation on OneLoveShy gets their own
+            place — <a href="https://your-name.oneloveshy.com" target="_blank"><span
+                class="marked-name">Your-Name.OneLoveShy.com</span></a>, or simply <a
+              href="https://your-name.oneloveshy.com" target="_blank"><span class="marked-name">Your-Name<img
+                  src="favicon.svg" alt="OneLoveShy logo"></span></a>.
+            Your time is priceless; for-profit platforms cost you more, even when <i>free</i>.</p>
+          <div class="cta-row">
+            <a href="#join" class="btn btn-primary">Reserve your name</a>
+            <a href="#how" class="btn btn-ghost">See how messaging works</a>
+          </div>
         </div>
-
+        <div>
+          <h1>Shy, or Not!</h1>
+          <p class="lede">The name came from <b>One Love</b>, Bob Marley's message that
+            all human beings are one family, regardless of race, background, or social division.
+            <b>Love Shy</b>: Not everyone is comfortable talking to people they don't know.
+            Introduce yourself without saying a word: Get you own place like
+            <a href="https://your-name.oneloveshy.com" target="_blank">
+              <span class="marked-name">Your-Name<img src="favicon.svg" alt="OneLoveShy logo"></span></a>
+            with whatever you want to share. Show it everywhere.
+          </p>
+        </div>
       </div>
       <div class="stripe" style="bottom:0;" aria-hidden="true"></div>
     </section>
@@ -799,9 +126,105 @@
           <div class="acard">
             <span class="tag">Public figures</span>
             <h3>Creators, artists &amp; celebrities</h3>
-            <p>One address fans can actually reach. You set the price to be heard — and know the message is real.</p>
+            <p>One place fans can actually reach. You set the price to be heard — and know the message is real.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- TWO NONPROFITS -->
+    <section class="alt" id="what">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">What: Two nonprofits, One Mission</p>
+          <h2>OneLoveShy.com runs the platform, and works with the two nonprofits, to carry out the mission.</h2>
+          <p>This site is not-for-profit, not a 501c, so it can serve its members. </p>
+        </div>
+        <div class="audience-grid" style="grid-template-columns:repeat(2,1fr);">
+          <a href="https://oneloveshy.org" target="_blank">
+            <div class="acard">
+              <b>OneLoveShy.Org </b> <span class="tag">501(c)(3)</span> <span class="marked-name"><img
+                  src="https://oneloveshy.org/favicon.svg" alt="OneLoveShy.Org logo"></span>
+              <p>Tax-deductible Charity work: helping people care for themselves, self-improvement resources, healthy
+                eating and exercise support, and related community-aid initiatives. Donations here are tax-deductible.
+              </p>
+            </div>
+          </a>
+          <a href="https://oneloveshy.net" target="_blank">
+            <div class="acard">
+              <b>OneLoveShy.Net </b> <span class="tag">501(c)(4)</span> <span class="marked-name"><img
+                  src="https://oneloveshy.net/favicon.svg" alt="OneLoveShy.Net logo"></span>
+              <p>Advocacy, political and policy goals, that
+                are not tax-deductible. OneLoveShy will not support candidates, political parties, or similar.
+                We support honesty in everything.</p>
+            </div>
+          </a>
+        </div>
+        <div class="section-head">
+          <h2>Mission Statement:</h2>
+          <h3>Unite People for Peace and Freedom.</h3>
+          <h3>Advocate Against Waste, in All It's Forms.</h3>
+
+          <p>Love has no borders. We hope to be available in every country, because communication is good. I briefly
+            looked multi-country nonprofit structures, but the waste goes against the mission. Sorry, tax professionals,
+            tax is not the enemy: waste is.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="alt" id="why">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Why this, and not another app</p>
+          <h2>I understand what people hate about dating &amp; networking sites — OneLoveShy is different.</h2>
+        </div>
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>What people put up with elsewhere</th>
+              <th>OneLoveShy.com</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="them"><span class="label">Pricing</span>Subscription fees - or "free" that costs more of your
+                time.</td>
+              <td class="us">A one-time purchase to get your place. Free to keep a profile and receive messages
+                forever.</td>
+            </tr>
+            <tr>
+              <td class="them"><span class="label">Audience</span>A narrow pool, especially on niche dating or
+                networking apps.</td>
+              <td class="us">Open to everyone — Share <a href="https://your-name.oneloveshy.com" target="_blank">
+                  <span class="marked-name">Your-Name<img src="favicon.svg" alt="OneLoveShy logo"></span></a> in any
+                situation.</td>
+            </tr>
+            <tr>
+              <td class="them"><span class="label">Trust</span>Fake profiles, clickbait ads, scammers.
+              </td>
+              <td class="us">No fakes<sup>*</sup> — real users promote OneLoveShy. Ratings to foster truth and trust.
+              </td>
+            </tr>
+            <tr>
+              <td class="them"><span class="label">Inbox</span>Free messaging means mass-blasting, fake likes, ghosting.
+              </td>
+              <td class="us">Sending costs something: no spam. You can restrict who reaches you, and the donation
+                requirement.</td>
+            </tr>
+            <tr>
+              <td class="them"><span class="label">Support</span>Are you dreaming?</td>
+              <td class="us">Self-service plus community feedback tools that promote civility. Contact <a
+                  href="https://me.oneloveshy.com" target="_blank">
+                  <span class="marked-name">Me<img src="favicon.svg" alt="OneLoveShy logo"></span></a> directly!
+              </td>
+            </tr>
+            <tr>
+              <td class="them"><span class="label">Ownership</span>Platform growth and monetization, at any cost.</td>
+              <td class="us">I am not selfish. Revenue covers the costs; surplus goes to improve life for everyone.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -810,15 +233,18 @@
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">How sending works</p>
-          <h2>A Message costs a stamp, ensuring the sender values you.</h2>
+          <h2>A small donation ensures the sender values you.</h2>
+          <p>The Message and reply do not expose real contact info. Stay as anonymous as you want.</p>
         </div>
         <div class="how-grid">
           <ol class="steps">
             <li>
               <span class="num mono">01</span>
               <div>
-                <h4>Find someone by their address</h4>
-                <p>Saw someone IRL like me.? Or search for who would like to meet.</p>
+                <h4>Find someone by their place name.</h4>
+                <p>Saw someone IRL like <a href="https://me.oneloveshy.com" target="_blank">
+                    <span class="marked-name">Me<img src="favicon.svg" alt="OneLoveShy logo"></span></a>? Or, when we
+                  have members, search for the ones who interest you.</p>
               </div>
             </li>
             <li>
@@ -833,15 +259,16 @@
               <span class="num mono">03</span>
               <div>
                 <h4>Messages that get responses</h4>
-                <p>The member knows you value the message, encouraging a personal response.</p>
+                <p>The member knows you value the message, encouraging a personal response, always free.</p>
               </div>
             </li>
             <li>
               <span class="num mono">04</span>
               <div>
-                <h4>Keep your address forever</h4>
-                <p>Reserving your_name.oneloveshy.com is a one-time purchase. There's nothing to renew just to stay
-                  reachable<sup>*</sup>.</p>
+                <h4>Keep your place forever</h4>
+                <p>Reserving <a href="https://your-name.oneloveshy.com" target="_blank">
+                    <span class="marked-name">Your-Name<img src="favicon.svg" alt="OneLoveShy logo"></span></a> is a
+                  one-time purchase. There's nothing to renew just to stay reachable.</p>
               </div>
             </li>
           </ol>
@@ -854,57 +281,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- COMPARISON -->
-    <section class="alt" id="why">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Why this, and not another app</p>
-          <h2>I undersatnd what people hate about dating &amp; networking sites — OneLoveShy is different.</h2>
-        </div>
-        <table class="compare">
-          <thead>
-            <tr>
-              <th>What people put up with elsewhere</th>
-              <th>On OneLoveShy</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="them"><span class="label">Pricing</span>Subscription fees - or "free" that costs more of your
-                time.</td>
-              <td class="us">A one-time purchase to get your place. Free to keep a profile and receive messages
-                forever.</td>
-            </tr>
-            <tr>
-              <td class="them"><span class="label">Audience</span>A narrow pool, especially on niche dating or
-                networking apps.</td>
-              <td class="us">Open to everyone — Share your_name in any situation.</td>
-            </tr>
-            <tr>
-              <td class="them"><span class="label">Trust</span>Fake profiles, clickbait ads, scammers.
-              </td>
-              <td class="us">No ad spend — real users promote OneLoveShy. Ratings to foster truth and trust.</td>
-            </tr>
-            <tr>
-              <td class="them"><span class="label">Inbox</span>Free messaging means mass-blasting, fake likes, ghosting.
-              </td>
-              <td class="us">Sending costs something: no spam. You can restrict who reaches you, and the donation
-                requirement.</td>
-            </tr>
-            <tr>
-              <td class="them"><span class="label">Support</span>Are you dreaming?</td>
-              <td class="us">Self-service plus community feedback tools that promote civility. Contact Me. directly!
-              </td>
-            </tr>
-            <tr>
-              <td class="them"><span class="label">Ownership</span>Platform growth and monetization, at any cost.</td>
-              <td class="us">I am not selfish. Revenue covers the costs; surplus goes to improve life for everyone.</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </section>
 
@@ -940,48 +316,12 @@
       </div>
     </section>
 
-    <!-- TWO NONPROFITS -->
-    <section class="alt">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Two nonprofits, one mission</p>
-          <h2>OneLoveShy.com runs the platform. Two affiliated nonprofits carry out the mission.</h2>
-          <p>Where will all this money go?</p>
-        </div>
-        <div class="audience-grid" style="grid-template-columns:repeat(2,1fr);">
-          <div class="acard">
-            <a href="https://oneloveshy.org" target="_blank" rel="noopener">
-              <span class="tag">501(c)(3)</span>
-            <h3>OneLoveShy.org</h3>
-            <p>Our charitable arm: helping others directly, self-improvement resources, healthy eating and exercise
-              support, the Switch program, and related community-aid initiatives. Donations here are tax-deductible.</p>
-          </a></div>
-          <div class="acard">
-            <a href="https://oneloveshy.net" target="_blank" rel="noopener"><span class="tag">501(c)(4)</span>
-            <h3>OneLoveShy.net</h3>
-            <p>Political and policy goals, and broader organizational initiatives that
-            fall outside charitable-only activity. OneLoveShy will not support candidates, policical parties, or similar.
-            We support honesty in everything.</p>
-          </a></div>
-        </div>
-        <div class="section-head">
-          <h2>>mission statement:</h2>
-          <p class="eyebrow"><b>Promote freedom, peace and civility. Advocate against waste, in all it's forms.</b></p>
-          <p>Make Love, not War. Haters are easy to manipulate. The world needs to be united against all indiscriminate (not directed toward military or leadership) killing, the
-            definition of terrorism.</p>
-          <p>Government, Lawyers, Union leaders, Tax accountants - There are too many groups to list, that get richer by making
-            life more difficult.
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ -->
     <section id="faq" class="alt">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">FAQ</p>
-          <h2>Good to know before you reserve a name.</h2>
+          <h2>Good to know before you reserve your place.</h2>
         </div>
 
         <details class="faq-item">
@@ -989,8 +329,14 @@
           <p>No, but trying (and being very disappointed with) a dating site is what sparked the idea.</p>
         </details>
         <details class="faq-item">
+          <summary>Use of AI?</summary>
+          <p>Some of this was generated, but mostly typed, from my mind through my fingers. All member images will have
+            a photo date and note of edits.
+            With enough members' preferences, AI will help you find people you want to meet.</p>
+        </details>
+        <details class="faq-item">
           <summary>How would a business or public figure use it?</summary>
-          <p>Get a clean public place with easy-to-remember address — then promote how you want. 
+          <p>Get a clean easy-to-remember place — then promote how you want.
             Trust-meter rating, because trust is key.
             Even the super-busy can give a little time for someone who has donated to their favorite charity, filtering
             serious messages from noise.</p>
@@ -998,13 +344,15 @@
         <details class="faq-item">
           <summary>What does "not-for-profit" actually mean here?</summary>
           <p>OneLoveShy isn't built to maximize returns for owners or investors. Message fees and name reservations
-            cover hosting, moderation, and development; anything left over goes back into the platform or community
-            causes, not dividends.</p>
+            cover normal expences; anything left over goes back into the platform or community causes, not dividends.
+          </p>
         </details>
         <details class="faq-item">
           <summary>Is the platform free to use?</summary>
-          <p>Browsing is — Joining by reserving your unique address
-            (your_name.oneloveshy.com) is a one-time fee.</p>
+          <p>Browsing is — Joining by reserving your unique place like <a href="https://your-name.oneloveshy.com"
+              target="_blank">
+              <span class="marked-name">Your-Name<img src="favicon.svg" alt="OneLoveShy logo"></span></a> is a one-time
+            fee.</p>
         </details>
         <details class="faq-item">
           <summary>Can I delete my account if I choose to?</summary>
@@ -1012,7 +360,8 @@
         </details>
         <details class="faq-item">
           <summary>What about an app?</summary>
-          <p>No - You have too many.</p>
+          <p>No - You have too many. OneLoveShy uses the message to prevent junk, not to hook you. Members can switch to
+            whatever communication methods they prefer, when they're ready.</p>
         </details>
       </div>
     </section>
@@ -1021,9 +370,17 @@
     <section id="join">
       <div class="wrap">
         <div class="final-cta">
-          <h2>Pre-release, not available yet.</h2>
-          <p>Reserve your_name.oneloveshy.com once. Keep it for as long as you want to be reachable.</p>
-          <a href="#" class="btn btn-primary">Reserve your name</a>
+          <div class="section-head">
+            <h2>A better world is something we make together.</h2>
+            <p>Share the idea, start a conversation, follow the socials. OneLoveShy is growing from a vision — one
+              connection at a
+              time.</p>
+            <p>This page describes an <b>intended</b> charitable mission. Not charitable yet, but<br><a
+                href="https://donate.stripe.com/14AbJ19B86S269ebwz4Ja02"
+                style="background-color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #507;"
+                target="_blank">
+                Click Here to Donate via Stripe</a>☺️</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1035,36 +392,54 @@
       <div class="foot-grid">
         <div>
           <h4>OneLoveShy</h4>
-          <p>An address for every kind of connection — dating, friendship, business, and public life. Built and run as a
-            not-for-profit.</p>
+          <p>Built for Real Connections, not profit.</p>
           <span class="nfp-badge mono">NFP</span>
         </div>
 
         <div>
           <h4>Contact</h4>
           <ul>
-            <li>me.oneloveshy.com</li>
+            <li><a href="https://me.oneloveshy.com" target="_blank">
+                <span class="marked-name">Me<img src="favicon.svg" alt="OneLoveShy logo"></span></a>
+            </li>
           </ul>
         </div>
 
         <div>
           <h4>Legal</h4>
           <ul>
-            <li><a href="/legal-notice">Legal notice</a></li>
-            <li><a href="/privacy">Privacy policy</a></li>
+            <!-- li><a href="/legal-notice">Legal notice</a></li -->
+            <li><a href="/privacy"><small>AI typical</small> Privacy policy</a></li>
           </ul>
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 OneLoveShy. A not-for-profit project.</span>
-        <span>
-          <a href="https://www.facebook.com/profile.php?id=61591484072872" style="margin-right:14px;">Facebook</a>
-          <a href="https://www.instagram.com/">Instagram</a>
-        </span>
+        <span>© OneLoveShy</span>
+        <div class="social-links">
+          <a class="social-link social-facebook" href="https://www.facebook.com/profile.php?id=61591484072872"
+            target="_blank" rel="noopener noreferrer">
+            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M13.5 21.95v-8.18h2.75l.41-3.2H13.5V8.53c0-.93.26-1.56 1.58-1.56h1.69V4.1c-.29-.04-1.3-.13-2.48-.13-2.46 0-4.14 1.5-4.14 4.26v2.38H7.38v3.2h2.77v8.18h3.35Z" />
+            </svg>
+            Facebook
+          </a>
+          <a class="social-link social-instagram" href="https://www.instagram.com/oneloveshy.c0m/" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor"
+                stroke-width="2" />
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+              <circle cx="17.8" cy="6.5" r="1.2" fill="currentColor" />
+            </svg>
+            Instagram
+          </a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <script src="find.js"></script>
 </body>
 
 </html>

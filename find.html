@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F3EEF6">
+  <meta name="description" content="Search people, organizations, and communities by connection, place, interests, and more on OneLoveShy.">
+  <title>Find People and Places — OneLoveShy</title>
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link id="site-stylesheet" rel="stylesheet" href="https://oneloveshy.com/style.css?v">
+  <script>
+    if (window.location.protocol === 'file:' ||
+        window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1') {
+      document.getElementById('site-stylesheet').href = 'style.css';
+    }
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="nav wrap">
+      <form class="place-search" action="find.html" method="get" role="search" data-find-form>
+        <input type="search" name="q" placeholder="place name" aria-label="Find a place" autocomplete="off">
+        <button class="msg-btn" type="submit" aria-label="Find a place">
+          <span class="msg-top">Find</span>
+          <span class="marked-name fontp"><img src="favicon.svg" alt="">OneLoveShy</span>
+          <span class="msg-bottom">Member's place</span>
+        </button>
+      </form>
+      <nav class="links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="alt directory-search">
+      <div class="wrap">
+        <div class="section-head">
+          <h1>Who would you like to find?</h1>
+          <p>Choose any combination. OneLoveShy is for all kinds of real-world connections.</p>
+        </div>
+        <form class="directory-filters" action="find.html" method="get" data-directory-filters>
+          <div class="filter-grid">
+            <fieldset class="filter-group">
+              <legend>Must haves</legend>
+              <label class="filter-label" for="filter-query">your needs</label>
+              <input id="filter-query" name="q" type="search" placeholder="e.g. location, languages">
+            </fieldset>
+            <fieldset class="filter-group">
+              <legend>Deal breakers</legend>
+              <label class="filter-label" for="filter-query">your kryptonite</label>
+              <input id="filter-query" name="q" type="search" placeholder="if any">
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Connection</legend>
+              <div class="filter-options">
+                <label class="filter-option"><input type="checkbox" name="connection" value="dating"> Dating and more</label>
+                <label class="filter-option"><input type="checkbox" name="connection" value="friendship"> Friendship</label>
+                <label class="filter-option"><input type="checkbox" name="connection" value="activities"> Activities and shared interests</label>
+                <label class="filter-option"><input type="checkbox" name="connection" value="professional"> Professional connections</label>
+                <label class="filter-option"><input type="checkbox" name="connection" value="creative"> My work for money</label>
+                <label class="filter-option"><input type="checkbox" name="connection" value="community"> My money for work</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>This is AI rough draft.</legend>
+         
+OneLoveShy will keep your preferences private, but use them to help you find what you are looking for.
+        
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Location</legend>
+              <label class="filter-label" for="filter-location">City, region, or country</label>
+              <input id="filter-location" name="location" type="text" autocomplete="address-level2" placeholder="Anywhere">
+              <label class="filter-label" for="filter-distance">Distance</label>
+              <select id="filter-distance" name="distance">
+                <option value="">Any distance</option>
+                <option value="10">Within 10 mi / 16 km</option>
+                <option value="25">Within 25 mi / 40 km</option>
+                <option value="50">Within 50 mi / 80 km</option>
+                <option value="100">Within 100 mi / 160 km</option>
+                <option value="250">Within 250 mi / 400 km</option>
+              </select>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Interests and keywords</legend>
+              <label class="filter-label" for="filter-interests">What would you like to connect over?</label>
+              <input id="filter-interests" name="interests" type="text" placeholder="e.g. hiking, art, volunteering">
+            </fieldset>
+
+          </div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" type="submit">Search</button>
+            <a class="btn btn-ghost" href="find.html">Clear filters</a>
+          </div>
+        </form>
+
+        <p class="filter-status" id="filter-status" aria-live="polite">
+          Filters are a preview; no members yet, lots more options to come.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-bottom">
+      <span>© OneLoveShy</span>
+      <nav class="links" aria-label="Related pages">
+        <a href="index.html">Home</a>
+        <a href="https://oneloveshy.net/">OneLoveShy.Net</a>
+        <a href="https://oneloveshy.org/">OneLoveShy.Org</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="find.js"></script>
+</body>
+</html>
