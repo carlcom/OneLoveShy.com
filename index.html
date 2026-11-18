@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <title>OneLoveShy — Everyone has an address. Yours is yours.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="OneLoveShy gives every person, friend-seeker, small business, and public figure their own address — your_name.oneloveshy.com — and a no-spam, pay-to-message way to be reached. A not-for-profit built for real connection.">
+  <meta name="description" content="OneLoveShy is the place everyone can meet, without the fakes and spam bots.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -194,36 +193,23 @@
       color: var(--white);
     }
 
-    .navtoggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.6rem;
-      cursor: pointer;
-      color: var(--ink);
-    }
 
     @media (max-width:780px) {
+
       nav.links {
-        position: fixed;
-        inset: 64px 0 0 0;
-        background: var(--paper);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 28px;
-        transform: translateX(100%);
-        transition: transform .25s ease;
-        gap: 20px;
-        border-top: 1px solid var(--line);
+        position: static;
+        inset: auto;
+        background: transparent;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 0;
+        transform: none;
+        transition: none;
+        gap: 14px;
+        border-top: none;
       }
 
-      nav.links.open {
-        transform: translateX(0%);
-      }
-
-      .navtoggle {
-        display: block;
-      }
     }
 
     /* ===== HERO ===== */
@@ -549,33 +535,6 @@
       margin-bottom: 4px;
     }
 
-    @media (max-width:700px) {
-
-      table.compare,
-      table.compare tbody,
-      table.compare tr,
-      table.compare td {
-        display: block;
-        width: 100%;
-      }
-
-      table.compare thead {
-        display: none;
-      }
-
-      table.compare tr {
-        border: 1.5px solid var(--ink);
-        margin-bottom: 14px;
-        border-radius: 6px;
-        overflow: hidden;
-      }
-
-      table.compare td {
-        border: none;
-        border-bottom: 1px solid var(--line);
-      }
-    }
-
     /* ===== VALUES ===== */
     .values-grid {
       display: grid;
@@ -771,18 +730,18 @@
           <circle cx="7" cy="7" r="6.5" fill="black" />
           <path d="M7,13.5 A6.5,6.5 0 0 0 7,0.5 m0,0.5 A3,3 0 0 0 7,7 A3,3 0 0 1 7,13 Z" fill="white" />
           <circle cx="7" cy="10" r="1" fill="white" />
-          <circle cx="7" cy="4" r="1" fill="black" />
-          <circle xmlns="http://www.w3.org/2000/svg" cx="7" cy="7" r="6.5" fill="none" stroke="#609" stroke-width="1" />
+          <path d="M7,3.1 C6.5,2.5 5.6,2.8 5.6,3.6 C5.6,4.4 7,5.3 7,5.3 C7,5.3 8.4,4.4 8.4,3.6 C8.4,2.8 7.5,2.5 7,3.1 Z"
+            fill="#e00" transform="rotate(-45 7 4)" />
+          <circle cx="7" cy="7" r="6.5" fill="none" stroke="#609" stroke-width="1" />
         </svg>
         <span class="brand-name">OneLoveShy</span>
       </div>
-      <button class="navtoggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+   
       <nav class="links" id="navLinks">
-        <a href="#who">Who it's for</a>
-        <a href="#how">How it works</a>
-        <a href="#values">Values</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn btn-ghost" href="#join">Claim your address</a>
+        <a href="#who">Who</a>
+        <a href="#what">What</a>
+        <a href="#why">Why</a>
+        <a href="#how">How</a>
       </nav>
     </div>
   </header>
@@ -790,38 +749,33 @@
   <main id="main">
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="what">
       <div class="stripe top" aria-hidden="true"></div>
       <div class="wrap">
-        <p class="eyebrow">Not-for-profit · built for real connection</p>
-        <h1>More than dating. A place to be found — by real people.</h1>
-        <p class="lede">Every person, friend-seeker, small business, and public figure on OneLoveShy gets their own
-          address — <strong>your_name.oneloveshy.com</strong>. It's simple: Only you know the value of your attention. No spammers, 
-          time leaches, or fakes<sup>*</sup>.</p>
+        <p class="eyebrow">Built for Real Connections, not profit</p>
+        <h1>A place to meet real people.</h1>
+        <p class="lede">Every person and organisation on OneLoveShy gets their own
+          address — <strong>your_name.oneloveshy.com</strong>. Your time is priceless, don't waste it on "free"
+          platforms. No spammers, time leaches, or fakes<sup>*</sup>.</p>
         <div class="cta-row">
           <a href="#join" class="btn btn-primary">Reserve your name</a>
           <a href="#how" class="btn btn-ghost">See how messaging works</a>
         </div>
 
-        <div class="address-mock" role="group" aria-label="Example profile address">
-          <div class="address-bar-top" aria-hidden="true"><span></span><span></span><span></span></div>
-          <div class="address-bar">
-            <span class="lock" aria-hidden="true"></span>
-            <span id="address-text" class="mono"><span class="who">maria</span>.oneloveshy.com</span>
-          </div>
-          <div class="address-tag" id="address-tag">looking for friends, open to more</div>
-        </div>
       </div>
       <div class="stripe" style="bottom:0;" aria-hidden="true"></div>
     </section>
+
+
 
     <!-- WHO IT'S FOR -->
     <section id="who" class="alt">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Who it's for</p>
-          <h2>One platform, many reasons to show up, like:</h2>
-          <p>You decide what your page is for. OneLoveShy doesn't put you into a box. — it gives everyone a reliable place to find real people.</p>
+          <h2>One platform, many reasons to show up:</h2>
+          <p>You decide what your page is for. OneLoveShy doesn't put you into a box. — it gives everyone a reliable
+            place to meet real people.</p>
         </div>
         <div class="audience-grid">
           <div class="acard">
@@ -830,23 +784,22 @@
             <p>Real matchmaking, without the throwaway accounts. A message that cost something is a message that means
               something.</p>
           </div>
-         <div class="acard">
+          <div class="acard">
             <span class="tag">Friendship</span>
             <h3>People looking for friends</h3>
-            <p>Not every connection is romantic. Set your page to "friends only" and meet people without the dating-app
+            <p>Not every connection is romantic. Set your page to "friends only" or whatever you're in the mood for,
+              without the dating-app
               pressure.</p>
           </div>
           <div class="acard">
             <span class="tag">Business</span>
-            <h3>Small businesses &amp; nonprofits</h3>
-            <p>A clean public page customers can message directly — no ad spend, no algorithm, no middleman taking a cut
-              of every lead.</p>
+            <h3>Big and small including nonprofits</h3>
+            <p>Every organization that cares about People, not just profits.</p>
           </div>
           <div class="acard">
             <span class="tag">Public figures</span>
             <h3>Creators, artists &amp; celebrities</h3>
-            <p>One verified address fans can actually reach. You set the price to be heard — and finally know a message
-              is real.</p>
+            <p>One address fans can actually reach. You set the price to be heard — and know the message is real.</p>
           </div>
         </div>
       </div>
@@ -857,7 +810,7 @@
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">How sending works</p>
-          <h2>Every message costs a stamp. That's the whole spam filter.</h2>
+          <h2>A Message costs a stamp, ensuring the sender values you.</h2>
         </div>
         <div class="how-grid">
           <ol class="steps">
@@ -865,23 +818,22 @@
               <span class="num mono">01</span>
               <div>
                 <h4>Find someone by their address</h4>
-                <p>Search a name or browse public profiles — dating, friendship, business, or public figures.</p>
+                <p>Saw someone IRL like me.? Or search for who would like to meet.</p>
               </div>
             </li>
             <li>
               <span class="num mono">02</span>
               <div>
                 <h4>Buy a stamp</h4>
-                <p>One flat, simple price to send a message. No subscription, no "premium tier" games. Some people set
-                  their own price — or ask for a charity donation instead.</p>
+                <p>Small cost to send a message. No subscription or worthless "free" trial. Know before you send, what
+                  to expect, based on ratings.</p>
               </div>
             </li>
             <li>
               <span class="num mono">03</span>
               <div>
-                <h4>It actually arrives</h4>
-                <p>Stamped messages land in a real inbox, not a spam filter. Recipients rate senders, so bad behavior
-                  gets noticed.</p>
+                <h4>Messages that get responses</h4>
+                <p>The member knows you value the message, encouraging a personal response.</p>
               </div>
             </li>
             <li>
@@ -889,7 +841,7 @@
               <div>
                 <h4>Keep your address forever</h4>
                 <p>Reserving your_name.oneloveshy.com is a one-time purchase. There's nothing to renew just to stay
-                  reachable.</p>
+                  reachable<sup>*</sup>.</p>
               </div>
             </li>
           </ol>
@@ -898,7 +850,7 @@
               <div class="small">First class</div>
               <div class="price">$1</div>
               <div class="small">per message</div>
-              <div class="note mono">or a charity gift instead</div>
+              <div class="note mono">or more: Member's Choice</div>
             </div>
           </div>
         </div>
@@ -906,11 +858,11 @@
     </section>
 
     <!-- COMPARISON -->
-    <section class="alt">
+    <section class="alt" id="why">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">Why this, and not another app</p>
-          <h2>I looked at what people hate about dating &amp; networking sites — OneLoveShy is different.</h2>
+          <h2>I undersatnd what people hate about dating &amp; networking sites — OneLoveShy is different.</h2>
         </div>
         <table class="compare">
           <thead>
@@ -921,8 +873,9 @@
           </thead>
           <tbody>
             <tr>
-              <td class="them"><span class="label">Pricing</span>Free trial to suck your time, then big subscription fees.</td>
-              <td class="us">A one-time purchase to reserve your name. Free to keep a profile and receive messages
+              <td class="them"><span class="label">Pricing</span>Subscription fees - or "free" that costs more of your
+                time.</td>
+              <td class="us">A one-time purchase to get your place. Free to keep a profile and receive messages
                 forever.</td>
             </tr>
             <tr>
@@ -933,23 +886,22 @@
             <tr>
               <td class="them"><span class="label">Trust</span>Fake profiles, clickbait ads, scammers.
               </td>
-              <td class="us">No ad spend — real users promote it. Ratings can't be bought, with optional "real"
-                verification.</td>
+              <td class="us">No ad spend — real users promote OneLoveShy. Ratings to foster truth and trust.</td>
             </tr>
             <tr>
               <td class="them"><span class="label">Inbox</span>Free messaging means mass-blasting, fake likes, ghosting.
               </td>
-              <td class="us">Sending costs something, so nobody mass-messages. You can restrict who reaches you, or
-                require a donation.</td>
+              <td class="us">Sending costs something: no spam. You can restrict who reaches you, and the donation
+                requirement.</td>
             </tr>
             <tr>
               <td class="them"><span class="label">Support</span>Are you dreaming?</td>
-              <td class="us">Self-service plus community feedback tools that promote civility.
+              <td class="us">Self-service plus community feedback tools that promote civility. Contact Me. directly!
               </td>
             </tr>
             <tr>
-              <td class="them"><span class="label">Ownership</span>Platform growth and monitization, at any cost.</td>
-              <td class="us">I want to provide for my family, but I am not selfish. Revenue covers the costs; surplus goes to improve life for everyone.</td>
+              <td class="them"><span class="label">Ownership</span>Platform growth and monetization, at any cost.</td>
+              <td class="us">I am not selfish. Revenue covers the costs; surplus goes to improve life for everyone.</td>
             </tr>
           </tbody>
         </table>
@@ -981,7 +933,7 @@
             <p>OneLoveShy is a not-for-profit. Connecting people leads to a better world.</p>
           </div>
           <div class="vcard">
-            <h3><span class="dot"></span>Member voting</h3>
+            <h3><span class="dot"></span>Membership</h3>
             <p>Members vote on how how the money gets spent — causes, programs, investing in society.</p>
           </div>
         </div>
@@ -998,30 +950,31 @@
         </div>
         <div class="audience-grid" style="grid-template-columns:repeat(2,1fr);">
           <div class="acard">
-            <span class="tag">501(c)(3)</span>
-            <h3><a href="https://oneloveshy.org" target="_blank" rel="noopener">OneLoveShy.org</a></h3>
+            <a href="https://oneloveshy.org" target="_blank" rel="noopener">
+              <span class="tag">501(c)(3)</span>
+            <h3>OneLoveShy.org</h3>
             <p>Our charitable arm: helping others directly, self-improvement resources, healthy eating and exercise
               support, the Switch program, and related community-aid initiatives. Donations here are tax-deductible.</p>
-          </div>
+          </a></div>
           <div class="acard">
-            <span class="tag">501(c)(4)</span>
-            <h3><a href="https://oneloveshy.net" target="_blank" rel="noopener">OneLoveShy.net</a></h3>
-            <p>Our advocacy arm: the nonprofit's political and policy goals, and broader organizational initiatives that
-              fall outside charitable-only activity. OneLoveShy will not support candidates, policical parties, or similar.
-              We support honesty in everything.</p>
-          </div>
+            <a href="https://oneloveshy.net" target="_blank" rel="noopener"><span class="tag">501(c)(4)</span>
+            <h3>OneLoveShy.net</h3>
+            <p>Political and policy goals, and broader organizational initiatives that
+            fall outside charitable-only activity. OneLoveShy will not support candidates, policical parties, or similar.
+            We support honesty in everything.</p>
+          </a></div>
         </div>
         <div class="section-head">
           <h2>>mission statement:</h2>
           <p class="eyebrow"><b>Promote freedom, peace and civility. Advocate against waste, in all it's forms.</b></p>
-          <p>Make Love, not War. Haters are easy to manipulate. The free world needs to unite against oppressors, and never stop.
-            The world needs to be united against all indiscriminate (not directed toward military or leadership) killing, the definition of terrorism.</p>
-          <p>Government, Lawyers, Union leaders, Tax accountants - There are too many groups to list, that get richer by making life more difficult.
+          <p>Make Love, not War. Haters are easy to manipulate. The world needs to be united against all indiscriminate (not directed toward military or leadership) killing, the
+            definition of terrorism.</p>
+          <p>Government, Lawyers, Union leaders, Tax accountants - There are too many groups to list, that get richer by making
+            life more difficult.
           </p>
         </div>
       </div>
     </section>
-
 
     <!-- FAQ -->
     <section id="faq" class="alt">
@@ -1033,12 +986,14 @@
 
         <details class="faq-item">
           <summary>Is OneLoveShy a dating site?</summary>
-          <p>No, but trying (and being very dissappointed with) a dating site is what sparked the idea.</p>
+          <p>No, but trying (and being very disappointed with) a dating site is what sparked the idea.</p>
         </details>
         <details class="faq-item">
           <summary>How would a business or public figure use it?</summary>
-          <p>Get a clean public page with easy-to-remember address — then promote how you want. Trust-meter on every page, because trust is key.
-            Even the super-busy can give a little time for someone who has donated to their favorite charity, filtering serious messages from noise.</p>
+          <p>Get a clean public place with easy-to-remember address — then promote how you want. 
+            Trust-meter rating, because trust is key.
+            Even the super-busy can give a little time for someone who has donated to their favorite charity, filtering
+            serious messages from noise.</p>
         </details>
         <details class="faq-item">
           <summary>What does "not-for-profit" actually mean here?</summary>
@@ -1048,8 +1003,8 @@
         </details>
         <details class="faq-item">
           <summary>Is the platform free to use?</summary>
-          <p>Browsing is — Joining by reserving your_name is a one time fee, allowing peop a profile and receiving messages is free. Reserving your specific name
-            (your_name.oneloveshy.com) is a one-time purchase, and senders pay a small stamp fee to message you.</p>
+          <p>Browsing is — Joining by reserving your unique address
+            (your_name.oneloveshy.com) is a one-time fee.</p>
         </details>
         <details class="faq-item">
           <summary>Can I delete my account if I choose to?</summary>
@@ -1066,7 +1021,7 @@
     <section id="join">
       <div class="wrap">
         <div class="final-cta">
-          <h2>Your name is probably still available, it's easy to see.</h2>
+          <h2>Pre-release, not available yet.</h2>
           <p>Reserve your_name.oneloveshy.com once. Keep it for as long as you want to be reachable.</p>
           <a href="#" class="btn btn-primary">Reserve your name</a>
         </div>
@@ -1084,29 +1039,14 @@
             not-for-profit.</p>
           <span class="nfp-badge mono">NFP</span>
         </div>
-        <div>
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="#who">Who it's for</a></li>
-            <li><a href="#how">How it works</a></li>
-            <li><a href="#values">Values</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </div>
+
         <div>
           <h4>Contact</h4>
           <ul>
-            <li>Email: me.oneloveshy.com</li>
+            <li>me.oneloveshy.com</li>
+          </ul>
+        </div>
 
-          </ul>
-        </div>
-        <div>
-          <h4>Nonprofits</h4>
-          <ul>
-            <li><a href="https://oneloveshy.org" target="_blank" rel="noopener">OneLoveShy.org (501c3)</a></li>
-            <li><a href="https://oneloveshy.net" target="_blank" rel="noopener">OneLoveShy.net (501c4)</a></li>
-          </ul>
-        </div>
         <div>
           <h4>Legal</h4>
           <ul>
@@ -1118,45 +1058,13 @@
       <div class="foot-bottom">
         <span>© 2026 OneLoveShy. A not-for-profit project.</span>
         <span>
-          <a href="https://www.facebook.com/" style="margin-right:14px;">Facebook</a>
+          <a href="https://www.facebook.com/profile.php?id=61591484072872" style="margin-right:14px;">Facebook</a>
           <a href="https://www.instagram.com/">Instagram</a>
         </span>
       </div>
     </div>
   </footer>
 
-  <script>
-    // mobile nav
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }));
-
-    // hero address rotator
-    const examples = [
-      { who: 'maria', tag: 'looking for friends, open to more' },
-      { who: 'thecafedowntown', tag: 'local business · verified' },
-      { who: 'djkayverified', tag: 'public figure · fan messages welcome' },
-      { who: 'samuel', tag: 'dating · serious connections only' }
-    ];
-    let i = 0;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduceMotion) {
-      setInterval(() => {
-        i = (i + 1) % examples.length;
-        const el = document.getElementById('address-text');
-        const tag = document.getElementById('address-tag');
-        el.innerHTML = '<span class="who">' + examples[i].who + '</span>.oneloveshy.com';
-        tag.textContent = examples[i].tag;
-      }, 3200);
-    }
-  </script>
 </body>
 
 </html>
