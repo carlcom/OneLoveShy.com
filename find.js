@@ -1,8 +1,8 @@
 (function () {
-  var form = document.querySelector('[data-find-form]');
-  if (!form) return;
+  var findForm = document.querySelector('[data-find-form]');
+  if (!findForm) return;
 
-  var input = form.querySelector('input[name="q"]');
+  var input = findForm.querySelector('input[name="q"]');
   var params = new URLSearchParams(window.location.search);
   var query = params.get('q');
   var summary = document.getElementById('find-query');
@@ -39,26 +39,40 @@
     }
   }
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    var value = input.value.trim();
+  function redirectPrototypePlace(value, event) {
     var normalized = value.toLowerCase();
     var localPreview = window.location.protocol === 'file:' ||
       window.location.hostname === 'localhost' ||
       window.location.hostname === '127.0.0.1';
 
     if (normalized === 'me') {
+      event.preventDefault();
       window.location.href = localPreview ? 'me.html' : 'https://me.oneloveshy.com/';
-      return;
+      return true;
     }
 
     if (normalized === 'your-name') {
+      event.preventDefault();
       window.location.href = localPreview ? 'name.html' : 'https://your-name.oneloveshy.com/';
-      return;
+      return true;
     }
 
-    window.location.href = value
-      ? 'find.html?q=' + encodeURIComponent(value)
-      : 'find.html';
-  });
+    return false;
+  }
+
+  if (filterForm) {
+    filterForm.addEventListener('submit', function (event) {
+      redirectPrototypePlace(input.value.trim(), event);
+    });
+  } else if (findForm.tagName === 'FORM') {
+    findForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var value = input.value.trim();
+      if (redirectPrototypePlace(value, event)) return;
+
+      window.location.href = value
+        ? 'find.html?q=' + encodeURIComponent(value)
+        : 'find.html';
+    });
+  }
 })();

@@ -25,14 +25,17 @@
 <body>
   <header class="site">
     <div class="nav wrap">
-      <form class="place-search" action="find.html" method="get" role="search" data-find-form>
-        <input type="search" name="q" placeholder="place name" aria-label="Find a place" autocomplete="off">
-        <button class="msg-btn" type="submit" aria-label="Find a place">
-          <span class="msg-top">Find</span>
-          <span class="marked-name fontp"><img src="favicon.svg" alt="">OneLoveShy</span>
-          <span class="msg-bottom">Member's place</span>
-        </button>
-      </form>
+      <div class="place-search filter-search" role="search" data-find-form>
+        <input type="search" name="q" form="directory-filters" placeholder="place name" aria-label="Find a place" autocomplete="off">
+        <div class="place-actions">
+          <button class="msg-btn" type="submit" form="directory-filters" aria-label="Find a place">
+            <span class="msg-top">Find</span>
+            <span class="marked-name fontp"><img src="favicon.svg" alt="">OneLoveShy</span>
+            <span class="msg-bottom">Member's place</span>
+          </button>
+          <a class="btn btn-ghost clear-filters" href="find.html">Clear filters</a>
+        </div>
+      </div>
       <nav class="links" aria-label="Main navigation">
         <a href="index.html">Home</a>
       </nav>
@@ -46,17 +49,17 @@
           <h1>Who would you like to find?</h1>
           <p>Choose any combination. OneLoveShy is for all kinds of real-world connections.</p>
         </div>
-        <form class="directory-filters" action="find.html" method="get" data-directory-filters>
+        <form id="directory-filters" class="directory-filters" action="find.html" method="get" data-directory-filters>
           <div class="filter-grid">
             <fieldset class="filter-group">
               <legend>Must haves</legend>
-              <label class="filter-label" for="filter-query">your needs</label>
-              <input id="filter-query" name="q" type="search" placeholder="e.g. location, languages">
+              <label class="filter-label" for="filter-must-haves">your needs</label>
+              <input id="filter-must-haves" name="must-haves" type="search" placeholder="e.g. location, languages">
             </fieldset>
             <fieldset class="filter-group">
               <legend>Deal breakers</legend>
-              <label class="filter-label" for="filter-query">your kryptonite</label>
-              <input id="filter-query" name="q" type="search" placeholder="if any">
+              <label class="filter-label" for="filter-deal-breakers">your kryptonite</label>
+              <input id="filter-deal-breakers" name="deal-breakers" type="search" placeholder="if any">
             </fieldset>
 
             <fieldset class="filter-group">
@@ -99,10 +102,6 @@ OneLoveShy will keep your preferences private, but use them to help you find wha
               <input id="filter-interests" name="interests" type="text" placeholder="e.g. hiking, art, volunteering">
             </fieldset>
 
-          </div>
-          <div class="filter-actions">
-            <button class="btn btn-primary" type="submit">Search</button>
-            <a class="btn btn-ghost" href="find.html">Clear filters</a>
           </div>
         </form>
 
